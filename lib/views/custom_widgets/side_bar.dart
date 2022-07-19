@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tester_app/views/color_game.dart';
 import 'package:tester_app/views/custom_widgets/bottom_navigation_bar.dart';
 import 'package:tester_app/views/hero_animation.dart';
 import 'package:tester_app/views/home.dart';
@@ -6,8 +7,25 @@ import 'package:tester_app/views/video_of_week.dart';
 
 import '../list_view.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends StatefulWidget {
   const SideBar({Key? key}) : super(key: key);
+
+  @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+
+@override
+  void initState() {
+    super.initState();
+  }
+
+@override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,18 +53,18 @@ class SideBar extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const Home()))),
           ListTile(
               leading: Icon(
-                Icons.dynamic_feed,
+                Icons.games,
                 color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
               ),
               title: const Text(
-                "Dynamic User Interface",
+                "Color game",
                 style: TextStyle(
                     fontSize: 16,
                     fontFamily: "EBGaramond",
                     fontWeight: FontWeight.w600),
               ),
               onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => const ListViewExample()))),
+                  MaterialPageRoute(builder: (_) => const ColorGame()))),
           ListTile(
               leading: Icon(
                 Icons.navigation,
@@ -100,4 +118,6 @@ class SideBar extends StatelessWidget {
       ),
     );
   }
+
+
 }

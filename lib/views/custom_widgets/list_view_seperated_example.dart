@@ -17,7 +17,7 @@ class ListViewSeperatedExample extends StatelessWidget {
             Icon(Icons.more_vert)],
       ),
       body: ListView.separated(
-        separatorBuilder: ((context, index) => const Divider(height: 2,)),
+        separatorBuilder: ((context, index) => const Divider(thickness: 2,)),
           itemCount: 3,
           itemBuilder: (context,index)=>TestItem(desc: "testing number $index", title: "builder")
           )

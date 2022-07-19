@@ -22,7 +22,7 @@ class GridViewExapmle extends StatelessWidget {
             child: GridView.builder(  
               itemCount: 4,  
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
-                  crossAxisCount: 3,  
+                  crossAxisCount: 2,  
                   crossAxisSpacing: 15.0,  
                   mainAxisSpacing: 15.0  
               ),  

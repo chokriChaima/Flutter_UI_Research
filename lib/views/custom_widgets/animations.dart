@@ -63,7 +63,8 @@ class _AnimationsState extends State<Animations> with TickerProviderStateMixin {
     _controller.dispose();
     super.dispose();
   }
-    double _opacity = 0.5;
+
+  double _opacity = 0.5;
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +75,15 @@ class _AnimationsState extends State<Animations> with TickerProviderStateMixin {
         ),
         Center(
             child: GestureDetector(
-              onTap: ()=> setState(() {
-                _opacity = _opacity == 0.5 ? 1 : 0.5;
-              }),
-              child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.bounceIn,
-                  opacity: _opacity,
-                  child: SpinningContainer(controller: _controller)),
-            )),
+          onTap: () => setState(() {
+            _opacity = _opacity == 0.5 ? 1 : 0.5;
+          }),
+          child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.bounceIn,
+              opacity: _opacity,
+              child: SpinningContainer(controller: _controller)),
+        )),
         const SizedBox(
           height: 70,
         ),
@@ -98,5 +99,34 @@ class _AnimationsState extends State<Animations> with TickerProviderStateMixin {
         )
       ],
     );
+  }
+}
+
+class AnimatedBackground extends StatefulWidget {
+  const AnimatedBackground({Key? key, required this.controller})
+      : super(key: key);
+
+  final ScrollController controller;
+
+  @override
+  _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
+}
+
+class _AnimatedBackgroundState extends State<AnimatedBackground> {
+  get offset => widget.controller.hasClients ? widget.controller.offset : 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+        animation: widget.controller,
+        builder: (context, child) {
+          return OverflowBox(
+              maxWidth: double.infinity,
+              alignment: const Alignment(4, 3),
+              child: Transform.rotate(
+                  angle: ((math.pi * offset) / -1024),
+                  child: const Icon(Icons.settings,
+                      size: 512, color: Colors.black)));
+        });
   }
 }

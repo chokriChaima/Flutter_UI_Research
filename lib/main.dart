@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:tester_app/views/color_game.dart';
 import 'package:tester_app/views/home.dart';
 import 'package:tester_app/views/list_view.dart';
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
        ),
       // home: const ListViewExample(title: 'Dynamic user interface'),
-      home : const Home()
+      home : const ColorGame()
 
   );
     

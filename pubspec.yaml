@@ -35,6 +35,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/audio.mp3
     - assets/images/
     - assets/video.mp4
     
